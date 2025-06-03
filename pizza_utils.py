@@ -21,13 +21,6 @@ PIZZA_POR_DEFECTO = {
 pizza_actual = PIZZA_POR_DEFECTO.copy()
 
 def seleccionar_masa(pizza):
-    """
-    Permite al usuario seleccionar un tipo de masa para la pizza.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    Returns:
-        bool: True si la masa fue seleccionada con éxito, False en caso contrario.
-    """
     print("\n--- Seleccionar Tipo de Masa ---")
     for i, masa in enumerate(MASAS_DISPONIBLES):
         print(f"{i + 1}. {masa}") 
@@ -45,13 +38,6 @@ def seleccionar_masa(pizza):
             print("Entrada inválida. Por favor, ingrese un número.")
 
 def seleccionar_salsa(pizza):
-    """
-    Permite al usuario seleccionar un tipo de salsa para la pizza.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    Returns:
-        bool: True si la salsa fue seleccionada con éxito, False en caso contrario.
-    """
     print("\n--- Seleccionar Tipo de Salsa ---")
     for i, salsa in enumerate(SALSAS_DISPONIBLES):
         print(f"{i + 1}. {salsa}")
@@ -69,13 +55,6 @@ def seleccionar_salsa(pizza):
             print("Entrada inválida. Por favor, ingrese un número.")
 
 def agregar_ingrediente(pizza):
-    """
-    Permite al usuario agregar un ingrediente a la pizza.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    Returns:
-        bool: True si el ingrediente fue agregado, False si ya estaba o la opción es inválida.
-    """
     print("\n--- Agregar Ingrediente ---")
     print("Ingredientes disponibles:")
     for i, ingrediente in enumerate(INGREDIENTES_DISPONIBLES):
@@ -99,13 +78,6 @@ def agregar_ingrediente(pizza):
             print("Entrada inválida. Por favor, ingrese un número.")
 
 def eliminar_ingrediente(pizza):
-    """
-    Permite al usuario eliminar un ingrediente de la pizza.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    Returns:
-        bool: True si el ingrediente fue eliminado, False si no estaba o la opción es inválida.
-    """
     print("\n--- Eliminar Ingrediente ---")
     if not pizza["ingredientes"]: 
         print("Tu pizza no tiene ingredientes para eliminar.")
@@ -119,7 +91,7 @@ def eliminar_ingrediente(pizza):
         try:
             opcion = int(input(f"Seleccione un ingrediente para eliminar (1-{len(pizza['ingredientes'])}): "))
             if 1 <= opcion <= len(pizza["ingredientes"]):
-                ingrediente_a_eliminar = pizza["ingredientes"].pop(opcion - 1) # Eliminamos el ingrediente.
+                ingrediente_a_eliminar = pizza["ingredientes"].pop(opcion - 1)
                 print(f"Ingrediente '{ingrediente_a_eliminar}' eliminado.")
                 return True
             else:
@@ -128,13 +100,6 @@ def eliminar_ingrediente(pizza):
             print("Entrada inválida. Por favor, ingrese un número.")
 
 def estimar_tiempo_y_confirmar(pizza):
-    """
-    Calcula el tiempo estimado de preparación de la pizza y pide confirmación.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    Returns:
-        bool: True si el usuario confirma la orden, False en caso contrario.
-    """
     
     if pizza["masa"] is None or pizza["salsa"] is None:
         print("\n¡Atención! Para estimar el tiempo, debes seleccionar al menos la masa y la salsa.")
@@ -147,22 +112,17 @@ def estimar_tiempo_y_confirmar(pizza):
     print(f"Tu pizza tomará aproximadamente {tiempo_total} minutos en estar lista.")
     
     while True:
-        confirmar = input("¿Deseas confirmar tu orden? (s/n): ").lower()
-        if confirmar == 's':
+        confirmar = input("¿Deseas confirmar tu orden? (si/no): ").lower()
+        if confirmar == 'si':
             print("¡Orden confirmada! Tu pizza estará lista pronto.")
             return True
-        elif confirmar == 'n':
-            print("Orden cancelada. Puedes seguir personalizando tu pizza.")
+        elif confirmar == 'no':
+            print("Orden cancelada. Puedes preparar nueva pizza ñam ñam.")
             return False
         else:
-            print("Respuesta inválida. Por favor, ingresa 's' para sí o 'n' para no.")
+            print("Respuesta inválida. Por favor, ingresa 'si' para sí o 'no' para no.")
 
 def mostrar_pizza_actual(pizza):
-    """
-    Muestra los componentes actuales de la pizza.
-    Args:
-        pizza (dict): El diccionario que representa la pizza actual.
-    """
     print("\n--- Tu Pizza Actual ---")
     print(f"Masa: {pizza['masa'] if pizza['masa'] else 'No seleccionada'}")
     print(f"Salsa: {pizza['salsa'] if pizza['salsa'] else 'No seleccionada'}")

@@ -12,9 +12,6 @@ def mostrar_menu():
     print("7. Salir")
 
 def main():
-    """
-    Función principal que ejecuta el programa del prototipo de Pizza JAT.
-    """
     print("¡Bienvenido al prototipo de Pizza JAT!")
     
 
