@@ -32,7 +32,7 @@ def seleccionar_masa(pizza):
     for i, masa in enumerate(MASAS_DISPONIBLES):
         print(f"{i + 1}. {masa}") 
     
-    while True: # Bucle para asegurar una entrada válida.
+    while True: 
         try:
             opcion = int(input(f"Seleccione una masa (1-{len(MASAS_DISPONIBLES)}): "))
             if 1 <= opcion <= len(MASAS_DISPONIBLES):

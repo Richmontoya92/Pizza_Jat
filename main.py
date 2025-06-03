@@ -2,7 +2,7 @@ from pizza_utils import *
 
 def mostrar_menu():
     """Muestra el menú principal de opciones al usuario."""
-    print("\n===== Menú de Personalización de Pizza =====")
+    print("\n*** Menú de Personalización de Pizza ***")
     print("1. Cambiar tipo de masa")
     print("2. Cambiar tipo de salsa")
     print("3. Agregar ingrediente")
@@ -10,7 +10,6 @@ def mostrar_menu():
     print("5. Mostrar mi pizza actual")
     print("6. Estimar tiempo y confirmar orden")
     print("7. Salir")
-    print("============================================")
 
 def main():
     """
@@ -35,10 +34,10 @@ def main():
             mostrar_pizza_actual(pizza_actual)  
         elif opcion == '6':
             if estimar_tiempo_y_confirmar(pizza_actual): 
-                print("¡Gracias por tu pedido!")
+                print("Gracias por tu pedido!")
                 break 
         elif opcion == '7':
-            print("¡Gracias por usar el prototipo de Pizza JAT! ¡Hasta luego!")
+            print("Gracias, hasta luego!")
             break 
         else:
             print("Opción inválida. Por favor, intente de nuevo.")
